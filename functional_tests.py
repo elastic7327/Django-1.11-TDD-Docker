@@ -9,7 +9,7 @@ import unittest
 class NewVisitorText(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Chrome()
 
     def tearDown(self):
         self.browser.quite()

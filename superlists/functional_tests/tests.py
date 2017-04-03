@@ -9,7 +9,7 @@ import time
 
 import unittest
 
-MAX_WAIT = 10
+MAX_WAIT = 2 
 
 
 class NewVisitorText(LiveServerTestCase):
@@ -57,7 +57,7 @@ class NewVisitorText(LiveServerTestCase):
         # of Edith's is coming through from cookies etc
 
         self.browser.quit()
-        self.browser.webdriver.Chrome()
+        self.browser = webdriver.Chrome()
 
         # Francis visits the home page.  There is no sign of Edith's
         # list

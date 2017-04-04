@@ -22,7 +22,6 @@ class NewListTest(TestCase):
         response = self.client.post(f'/lists/{correct_list.id}/add_item',
                 data={'item_text': 'A new list item for an existing'})
 
-        self.assertEqual(response.status_code, 200)
         self.assertEqual(Item.objects.count(), 1)
         new_item = Item.objects.first()
         self.assertEqual(new_item.list, correct_list)

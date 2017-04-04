@@ -9,7 +9,7 @@ import time
 
 import unittest
 
-MAX_WAIT = 2 
+MAX_WAIT = 2
 
 
 class NewVisitorText(LiveServerTestCase):

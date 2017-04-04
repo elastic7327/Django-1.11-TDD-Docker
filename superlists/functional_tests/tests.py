@@ -1,18 +1,24 @@
-#!/usr/bin/python
+"""
+    DOC STRING
+"""
+# !/usr/bin/python
 # -*- coding: utf-8 -*-
+import unittest
+import time
 
 from django.test import LiveServerTestCase
 from selenium.common.exceptions import WebDriverException
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
 
-import unittest
 
 MAX_WAIT = 2
 
 
 class NewVisitorText(LiveServerTestCase):
+    """
+    Something Special Doc String
+    """
 
     def setUp(self):
         self.browser = webdriver.Chrome()
@@ -21,11 +27,17 @@ class NewVisitorText(LiveServerTestCase):
         self.browser.quit()
 
     def check_for_row_in_list_table(self, row_text):
+        """
+        Doc String
+        """
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text, [row.text for row in rows])
 
     def wait_for_row_in_list_table(self, row_text):
+        """
+        Doc String
+        """
 
         start_time = time.time()
         while True:
@@ -40,6 +52,9 @@ class NewVisitorText(LiveServerTestCase):
                 time.sleep(0.5)
 
     def test_multiple_users_can_start_lists_at_different_urls(self):
+        """
+        DocString
+        """
         # Edith start a new todo list
 
         self.browser.get(self.live_server_url)
@@ -49,7 +64,7 @@ class NewVisitorText(LiveServerTestCase):
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
 
         edith_list_url = self.browser.current_url
-        self.assertRegexpMatches(edith_list_url, '/lists/.+')
+        self.assertRegex(edith_list_url, '/lists/.+')
 
         # Now a new user, Francis, comes along to the site.
 
@@ -76,17 +91,20 @@ class NewVisitorText(LiveServerTestCase):
         self.wait_for_row_in_list_table('1: Buy milk')
 
         francis_list_url = self.browser.current_url
-        self.assertRegexpMatches(francis_list_url, '/lists/.+')
+        self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(francis_list_url, edith_list_url)
 
         # Again, there is no trace of Edith's list
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Buy peacock feathers', page_text)
-        self.asserttIn('Buy milk', page_text)
+        self.assertIn('Buy milk', page_text)
 
         # Satisfied, they both go back to sleep
 
-    def test_can_start_a_list_and_retrieve_it_later(self):
+    def test_can_start_a_list_and_retrives_it_later(self):
+        """
+        DocString
+        """
         # Edith has heard about a cool new online to-do app. She goes
         # to check out its homepage
         self.browser.get(self.live_server_url)
@@ -102,8 +120,7 @@ class NewVisitorText(LiveServerTestCase):
 
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
-                inputbox.get_attribute('placeholder'),
-                'Enter a to-do item'
+            inputbox.get_attribute('placeholder'), 'Enter a to-do item'
         )
 
         # She types "Buy peacock feathers" into a text box (Edith's hobby
@@ -115,7 +132,7 @@ class NewVisitorText(LiveServerTestCase):
 
         # "1: Buy peacock feathers" as an item in a to-do lists
         inputbox.send_keys(Keys.ENTER)
-        time.sleep(1)
+
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
 
         # There is still a text box inviting her to add another item.

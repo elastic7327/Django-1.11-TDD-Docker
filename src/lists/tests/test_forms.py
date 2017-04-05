@@ -5,8 +5,10 @@
 # -*- coding: utf-8 -*-
 
 from django.test import TestCase
-
+from django.utils.html import escape
 from lists.forms import ItemForm, EMPTY_ITEM_ERROR
+
+import ipdb as br
 
 
 class ItemFormTest(TestCase):
@@ -20,7 +22,8 @@ class ItemFormTest(TestCase):
 
     def test_form_validation_for_blank_items(self):
         form = ItemForm(data={'text': ''})
+        print(form.as_p())
         self.assertFalse(form.is_valid())
         self.assertEqual(
-            form.errors['text'],[EMPTY_ITEM_ERROR]
+            form.errors['text'], [EMPTY_ITEM_ERROR]
         )

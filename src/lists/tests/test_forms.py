@@ -60,7 +60,6 @@ class ExistingListItemFormTest(TestCase):
         )
 
     def test_form_validation_for_duplicate_items(self):
-        # br.set_trace()
         list_ = List.objects.create()
         Item.objects.create(list=list_, text='no twins!')
         form = ExistingListItemForm(for_list=list_, data={'text': 'no twins!'})

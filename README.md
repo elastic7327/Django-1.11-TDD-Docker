@@ -7,3 +7,15 @@
 
 # Agile!!
 # TDD!!
+
+
+CTAGS 
+$ ctags -R --languages=python .
+
+
+(into vim command mode)
+:tj NAME   # TagJump to NAME      ==    Ctrl + ]
+:stj NAME  # Split and Tag JUMP to NAME
+
+
+:po # Get Back                    ==    Ctrl + t

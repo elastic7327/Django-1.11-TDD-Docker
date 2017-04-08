@@ -26,11 +26,11 @@ $ ctags -R --languages=python .
 
 #VIM SNIPPETS  AWESOME....
 <p align="left">
-  <img src="./img/file_list.png" width="400"/>
+  <img src="./img/filelist.png" width="600"/>
 </p>
 
 ##
 <p align="left">
-  <img src="./img/snippets.png" width="400"/>
+  <img src="./img/snippets.png" width="600"/>
 </p>
 

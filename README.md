@@ -8,7 +8,7 @@
 # Agile!!
 # TDD!!
 
-
+"""
 CTAGS 
 $ ctags -R --languages=python .
 
@@ -17,5 +17,20 @@ $ ctags -R --languages=python .
 :tj NAME   # TagJump to NAME      ==    Ctrl + ]
 :stj NAME  # Split and Tag JUMP to NAME
 
-
 :po # Get Back                    ==    Ctrl + t
+"""
+
+
+
+
+
+#VIM SNIPPETS  AWESOME....
+<p align="left">
+  <img src="./img/file_list.png" width="400"/>
+</p>
+
+##
+<p align="left">
+  <img src="./img/snippets.png" width="400"/>
+</p>
+

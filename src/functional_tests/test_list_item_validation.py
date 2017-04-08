@@ -11,6 +11,7 @@ from selenium.webdriver.common.keys import Keys
 from .base import FunctionalTest
 
 
+
 class ItemValidationTest(FunctionalTest):
     """
     DOC STRING
@@ -99,8 +100,6 @@ class ItemValidationTest(FunctionalTest):
         self.wait_for(lambda: self.assertTrue(
             self.browser.find_element_by_css_selector('.has-error').is_displayed()
         ))
-        
-
 
 
 

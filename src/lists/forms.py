@@ -8,7 +8,6 @@ from django import forms
 from django.core.exceptions import ValidationError
 from lists.models import Item
 
-import ipdb as br
 
 # class ItemForm(forms.Form):
 #     """

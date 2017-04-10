@@ -6,37 +6,52 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<lint href="/static/custom/base.css" rel="stylesheet">
+		<script charset="utf-8">
+				$(document).ready(function (){
+					window.Superlist.initialize();
+				});
+		</script>
 		<title>To-Do lists</title>
 	</head>
 <body>
-	<script charset="utf-8">
-			$(document).ready(function (){
-				window.Superlist.initialize();
-			});
-	</script>
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3 jumbotron">
-			<div class="text-center">
-			<h1>{% block header_text %}{% endblock %}</h1>
-				<form  method ="POST" action="{% block form_action %}{% endblock %}">
-					<p style="text-align: center;">
-					{{form.text}}
-					{% csrf_token%}
-					{% if form.errors %}
-					<div class="form-group has-error">
-						<div class="help-block">{{form.text.errors}}</div>
-					</div>
-					{% endif %}
+	<div class='container'>
+			<div class='navbar'>
+				{% if user.is_authenticated%}
+					<p>Logged in as {{user.email}}</p>
+					<p><a href="{% url 'logout' %}">Log out</a></p>
+				{% else %}
+				<form action="{% url 'send_login_email' %}" method="POST" accept-charset="utf-8">
+					Enter email to log in: <input type="text" name="email"/>
+					{% csrf_token %}
 				</form>
-
+				{% endif %}
 			</div>
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			{% block table %}
-			{% endblock %}
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 jumbotron">
+				<div class="text-center">
+				<h1>{% block header_text %}{% endblock %}</h1>
+					<form  method ="POST" action="{% block form_action %}{% endblock %}">
+						<p style="text-align: center;">
+						{{form.text}}
+						{% csrf_token%}
+						{% if form.errors %}
+						<div class="form-group has-error">
+							<div class="help-block">{{form.text.errors}}</div>
+						</div>
+						{% endif %}
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				{% block table %}
+				{% endblock %}
+			</div>
 		</div>
 	</div>
 

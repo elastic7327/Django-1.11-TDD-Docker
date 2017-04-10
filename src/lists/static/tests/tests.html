@@ -35,13 +35,14 @@
 
 			console.log('qunit tests start');
 			QUnit.test('errors should be hidden on keypress', function (assert){
+				window.Superlists.initialize();
 				console.log('in test 1');
 				$('input[name="text"]').trigger('keypress');
 				assert.equal($('.has-error').is(':visible'), false);
 			});
 
 			QUnit.test('errors should be hidden on keypress', function (assert){
-				initialize();
+				window.Superlists.initialize();
 				assert.equal($('.has-error').is(':visible'), true);
 			});
 

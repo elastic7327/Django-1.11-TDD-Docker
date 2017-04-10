@@ -6,10 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<lint href="/static/custom/base.css" rel="stylesheet">
-
 		<title>To-Do lists</title>
 	</head>
 <body>
+	<script charset="utf-8">
+			$(document).ready(function (){
+				window.Superlist.initialize();
+			});
+	</script>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 jumbotron">
 			<div class="text-center">
@@ -28,8 +32,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">

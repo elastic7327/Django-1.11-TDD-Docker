@@ -8,6 +8,12 @@
 # Agile!!
 # TDD!!
 
+<p align="left">
+  <img src="./img/refactoring_cat.gif" width="600"/>
+</p>
+
+# Double Loop TDD!!!!!!!
+
 """
 CTAGS 
 $ ctags -R --languages=python .

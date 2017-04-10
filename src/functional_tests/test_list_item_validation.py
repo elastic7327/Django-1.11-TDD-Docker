@@ -41,7 +41,7 @@ class ItemValidationTest(FunctionalTest):
 
         self.wait_for_row_in_list_table('1: Buy milk')
 
-        # Perversely, She now decides to submit a second blank list item 
+        # Perversely, She now decides to submit a second blank list item
 
         self.get_item_input_box().send_keys(Keys.ENTER)
 
@@ -52,7 +52,7 @@ class ItemValidationTest(FunctionalTest):
             '#id_text:invalid'
         ))
 
-        # And She can correct it by filling some text in 
+        # And She can correct it by filling some text in
 
         self.get_item_input_box().send_keys('Make tea')
         self.get_item_input_box().send_keys(Keys.ENTER)
@@ -99,7 +99,6 @@ class ItemValidationTest(FunctionalTest):
         self.wait_for(lambda: self.assertTrue(
             self.browser.find_element_by_css_selector('.has-error').is_displayed()
         ))
-
 
 
 if __name__ == '__main__':

@@ -3,22 +3,14 @@ from django.core.urlresolvers import reverse
 
 
 class List(models.Model):
-    """
-    DOC STRING
-    """
 
     def get_absolute_url(self):
-        """
-        DOC STRING
-        """
         return reverse('view_list', args=[self.id])
 
 
 class Item(models.Model):
-    """
-    DOC STRING
-    """
-    text = models.TextField(default='', unique=True)
+
+    text = models.CharField(default='', unique=True, max_length=255)
     list = models.ForeignKey(List, default=None)
 
     def __str__(self):
@@ -27,4 +19,3 @@ class Item(models.Model):
     class Meta:
         ordering = ('id',)
         unique_together = ('list', 'text')
-

@@ -16,11 +16,18 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from rest_framework.routers import DefaultRouter, SimpleRouter
+
 from lists import views
 from lists import urls as list_urls
 from accounts import urls as accounts_urls
 
+router = DefaultRouter()
+router.register(r'lists', views.ListViewSet)
+
 urlpatterns = [
+
+    url(r'^api/$', include(router.urls, namespace='api')),
     url(r'^$', views.home_page, name='home'),
     url(r'^lists/', include(list_urls)),
     url(r'^accounts/', include(accounts_urls)),

@@ -80,7 +80,7 @@ class ListAndItemModelTest(TestCase):
             #item.full_clean()
             item.save()
 
-    def test_CAN_save_same_item_to_different_lists(self):
+    def test_can_save_same_item_to_different_lists(self):
         list1 = List.objects.create()
         list2 = List.objects.create()
         Item.objects.create(list=list1, text="bla")

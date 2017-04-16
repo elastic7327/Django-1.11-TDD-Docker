@@ -1,4 +1,4 @@
-# django-10.11-TDD-full-examples
+# Django-1.11-TDD-full-examples
 
 
 <p align="left">

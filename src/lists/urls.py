@@ -13,10 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.conf.urls import url
 from django.contrib import admin
 
+from rest_framework.routers import DefaultRouter
+
 from lists import views
+
+router = DefaultRouter()
+router.register(r'lists', views.ListViewSet)
 
 urlpatterns = [
     url(r'^new/$', views.new_list, name='new_list'),
@@ -24,3 +30,5 @@ urlpatterns = [
     # url(r'^(\d+)/add_item$', views.add_item, name='add_item'),
     # url(r'^admin/', admin.site.urls),
 ]
+
+urlpatterns += router.urls

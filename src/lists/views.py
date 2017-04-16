@@ -2,10 +2,19 @@ from django.shortcuts import render, redirect
 from django.core.exceptions import ValidationError
 from django.http import HttpResponse
 
+from rest_framework import viewsets
+
+from lists.serializers import ListSerializer, ItemSerializer
+
 from lists.models import Item, List
 from lists.forms import ItemForm, ExistingListItemForm
 
 import ipdb as br
+
+
+class ListViewSet(viewsets.ModelViewSet):
+    queryset = List.objects.all()
+    serializer_class = ListSerializer
 
 
 def home_page(request):

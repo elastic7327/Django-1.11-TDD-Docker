@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'lists',
     'accounts',
+    'django_extensions',
+    'rest_framework',
 ]
 
 AUTH_USER_MODEL = 'accounts.ListUser'

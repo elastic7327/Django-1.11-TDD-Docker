@@ -81,19 +81,31 @@ WSGI_APPLICATION = 'superlists.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-
- # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('BASE_DB', None),
-        'USER': os.environ.get('BASE_USER', None),
-        'PASSWORD': os.environ.get('BASE_PW', None), 
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
+# Database
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': os.environ.get('BASE_DB', None),
+#        'USER': os.environ.get('BASE_USER', None),
+#        'PASSWORD': os.environ.get('BASE_PW', None), 
+#        'HOST': 'localhost',
+#        'PORT': '3306',
+#    }
+#}
+
+if 'DATABASE_HOST' in os.environ:
+   DATABASES['default']['HOST'] = os.getenv('DATABASE_HOST')
+   DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
+   DATABASES['default']['NAME'] = os.getenv('DATABASE_NAME')
+   DATABASES['default']['USER'] = os.getenv('DATABASE_USER')
+   DATABASES['default']['PASSWORD'] = os.getenv('DATABASE_PASSWORD')
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

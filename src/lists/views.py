@@ -11,7 +11,6 @@ from lists.forms import ItemForm, ExistingListItemForm
 
 import ipdb as br
 
-
 class ListViewSet(viewsets.ModelViewSet):
     queryset = List.objects.all()
     serializer_class = ListSerializer

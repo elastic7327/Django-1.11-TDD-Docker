@@ -1,13 +1,14 @@
 web:
-build:.
-links:
-	- 'db'
-ports:
-	- '8000:8000'
-environment:
+ build: .
+
+ links:
+  - 'db'
+ ports:
+  - '8004:8000'
+ environment:
  - 'DATABASE_HOST=db'
  - 'DATABASE_NAME=tdd_tutorial'
  - 'DATABASE_USER=root'
  - 'DATABASE_PASSWORD=MyNewPass'
 db:
-image: mysql
+ image: mysql

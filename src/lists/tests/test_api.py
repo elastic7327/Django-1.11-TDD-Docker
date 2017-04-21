@@ -8,4 +8,4 @@ class TestListViewSet(TestCase):
 
     def test_viewset(self):
         basse_url = reverse('api:list-list')
-        import ipdb;ipdb.set_trace();
+        # import ipdb;ipdb.set_trace();

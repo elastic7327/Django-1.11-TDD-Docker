@@ -19,5 +19,5 @@ install:
   - pip install -q Django==$DJANGO_VERSION
 # command to run tests
 script: 
-  - python3 manage.py test lists
-  - python3 manage.py test functional_tests
+  - cd ./src && python3 manage.py test lists
+  - cd ./src && python3 manage.py test functional_tests

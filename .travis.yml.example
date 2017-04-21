@@ -1,10 +1,6 @@
 language: python
 
 python:
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.5-dev" # 3.5 development branch
   - "3.6"
   - "3.6-dev" # 3.6 development branch
   - "3.7-dev" # 3.7 development branch
@@ -13,8 +9,14 @@ env:
   - DJANGO_VERSION=1.9.3
   - DJANGO_VERSION=1.9.9
   - DJANGO_VERSION=1.10.7
+  - DJANGO_VERSION=1.11
 # command to install dependencies
 install:
+  - pip install -r ./requirements/requirements.txt
   - pip install -q Django==$DJANGO_VERSION
 # command to run tests
-script: pytest
+script: 
+  - python3 ./src/manage.py makemigrations
+  - python3 ./src/manage.py migrate
+  - python3 ./src/manage.py test lists
+  - python3 ./src/manage.py test functional_tests

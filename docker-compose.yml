@@ -1,32 +1,26 @@
-db:
- image: mysql
- environment:
-  - MYSQL_ROOT_PASSWORD=rootpassword
-  - MYSQL_USER=composetest
-  - MYSQL_PASSWORD=testpassword
-  - MYSQL_DATABASE=composetest
- ports:
-   - "3306:3306"
+#db:
+# image: mysql
+# environment:
+#  - MYSQL_ROOT_PASSWORD=rootpassword
+#  - MYSQL_USER=composetest
+#  - MYSQL_PASSWORD=testpassword
+#  - MYSQL_DATABASE=composetest
+# ports:
+#   - "3306:3306"
 web:
  restart: always
 
  build: .
 
- links:
-  - 'db'
+# links:
+#  - 'db'
  volumes:
   - '.:/user/src'  # Magic
  ports:
-  - '8004:8000'
+  - '8005:8000'
  environment:
-  - DATABASE_HOST=localhost
+#  - DATABASE_HOST=localhost
   - DATABASE_NAME=composetest
   - DATABASE_USER=composetest
   - DATABASE_PASSWORD=rootpassword
 
-
-# 사실상 우리는 AWS RDS를 사용하기때문에 ............................ 
-# db host 관련 테스트 로컬 빌드에서 뻑이나도 ...........
-# 사실 돌아가긴 하니깐요?
-# 지금 저의 옆에서 천사와 악마가 속삭이는군요 
-# 

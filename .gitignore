@@ -4,3 +4,6 @@ db.sqlite3
 __pycache__
 *.pyc
 tags
+htmlcov
+.coverage
+.DS_STORE

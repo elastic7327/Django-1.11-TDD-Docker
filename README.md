@@ -1,5 +1,7 @@
 # Django-1.11-TDD-full-examples
 
+[![Join the chat at https://gitter.im/django-tdd-restful-api/Lobby](https://badges.gitter.im/django-tdd-restful-api/Lobby.svg)](https://gitter.im/django-tdd-restful-api/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 <p align="left">
   <img src="./img/tdd.png" width="600"/>
